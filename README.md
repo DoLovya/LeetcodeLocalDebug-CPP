@@ -2,34 +2,88 @@
 
 这是一个用于本地方便调试 LeetCode 代码的 C++ 环境，提供了常用的数据结构和工具函数，让你可以在本地快速测试和调试 LeetCode 题目的解决方案。
 
-## 项目结构
-
-```
-LeetCode/
-├── main.cpp              # 主程序入口
-├── leetcode_headers.h     # 常用头文件集合
-├── leetcode_lisst.h       # 链表相关工具函数
-├── leetcode_vector.h      # 向量相关工具函数
-├── leetcode_test.h        # Solution 类模板
-├── CMakeLists.txt         # CMake 构建配置
-├── .gitignore            # Git 忽略文件配置
-└── README.md             # 项目说明文档
-```
-
-## 功能特性
+## 数据结构工具使用说明
 
 ### 1. 链表工具 (leetcode_lisst.h)
-- **ListNode 结构体**: 标准的 LeetCode 链表节点定义
-- **input_list()**: 从控制台输入创建链表
-- **output_list()**: 输出链表内容
 
-### 2. 向量工具 (leetcode_vector.h)
-- **print_vector()**: 打印一维向量
-- **print_vector2()**: 打印二维向量
-- **string_to_int_vector()**: 将字符串转换为整数向量
-- **intput_int_vector()**: 从控制台输入创建整数向量
+#### 结构定义
+```cpp
+struct ListNode {
+    int val;
+    ListNode* next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode* next) : val(x), next(next) {}
+};
+```
 
-### 3. 常用头文件 (leetcode_headers.h)
+#### 使用方法
+```cpp
+#include "leetcode_lisst.h"
+
+// 从控制台输入创建链表
+// 输入格式：先输入节点数量，然后输入各节点值
+// 例如：5 1 2 3 4 5
+ListNode* head = input_list();
+
+// 输出链表
+output_list(head);
+```
+
+### 2. 二叉树工具 (leetcode_tree.h)
+
+#### 结构定义
+```cpp
+struct TreeNode {
+    int val;
+    TreeNode* left;
+    TreeNode* right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode* left, TreeNode* right) : val(x), left(left), right(right) {}
+};
+```
+
+#### 使用方法
+```cpp
+#include "leetcode_tree.h"
+
+// 从字符串构建二叉树（LeetCode格式）
+// 输入格式：[1,2,3,null,null,4,5]
+string input = "[1,2,3,null,null,4,5]";
+TreeNode* root = build_tree(input);
+
+// 从控制台输入构建二叉树
+TreeNode* root = input_tree();
+
+// 打印二叉树（前序遍历）
+print_tree(root);
+```
+
+### 3. 向量工具 (leetcode_vector.h)
+
+#### 使用方法
+```cpp
+#include "leetcode_vector.h"
+
+// 打印一维向量
+vector<int> nums = {1, 2, 3, 4, 5};
+print_vector(nums);
+
+// 打印二维向量
+vector<vector<int>> matrix = {{1, 2}, {3, 4}, {5, 6}};
+print_vector2(matrix);
+
+// 从字符串创建整数向量
+// 输入格式：[1,2,3,4,5]
+string str = "[1,2,3,4,5]";
+vector<int> vec = string_to_int_vector(str);
+
+// 从控制台输入创建整数向量
+vector<int> vec = intput_int_vector();
+```
+
+### 4. 常用头文件 (leetcode_headers.h)
 包含了 LeetCode 题目中常用的头文件：
 - `<math.h>`
 - `<stack>`
@@ -37,7 +91,7 @@ LeetCode/
 - `<string>`
 - `<unordered_map>`
 
-### 4. Solution 模板 (leetcode_test.h)
+### 5. Solution 模板 (leetcode_test.cpp)
 提供了标准的 Solution 类模板，你可以直接在这里编写你的解决方案。
 
 ## 使用方法
@@ -77,7 +131,10 @@ cmake --build .
 当前项目包含了一个最长回文子串的示例实现：
 
 ```cpp
-// 在 leetcode_test.h 中
+// 在 leetcode_test.cpp 中
+#include "leetcode_headers.h"
+using namespace std;
+
 class Solution {
 public:
     string longestPalindrome(string s) {
@@ -85,7 +142,6 @@ public:
     }
 };
 
-// 在 main.cpp 中
 int main() {
     std::string str;
     std::cin >> str;
