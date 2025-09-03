@@ -81,6 +81,14 @@ vector<int> vec = string_to_int_vector(str);
 
 // 从控制台输入创建整数向量
 vector<int> vec = intput_int_vector();
+
+// 从字符串创建字符串向量
+// 输入格式：["MyQueue","push","push","peek","pop","empty"]
+string str = "[\"MyQueue\",\"push\",\"push\",\"peek\",\"pop\",\"empty\"]";
+vector<string> vec = string_to_string_vector(str);
+
+// 从控制台输入创建字符串向量
+vector<string> vec = input_string_vector();
 ```
 
 ### 4. 常用头文件 (leetcode_headers.h)
