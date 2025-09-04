@@ -7,7 +7,7 @@
 
 std::vector<std::string> string_to_string_vector(const std::string& input);
 std::vector<int> string_to_int_vector(const std::string& input);
-std::vector<std::vector<int>> string_to_int_vector2(const std::string& input);
+std::vector<std::vector<int>> string_to_2d_int_vector(const std::string& input);
 
 std::vector<std::string> input_string_vector()
 {
@@ -21,11 +21,11 @@ std::vector<int> input_int_vector()
 	std::cin >> str;
 	return string_to_int_vector(str);
 }
-std::vector<std::vector<int>> input_int_vector2()
+std::vector<std::vector<int>> input_2d_int_vector()
 {
 	std::string str;
 	std::cin >> str;
-	return string_to_int_vector2(str);
+	return string_to_2d_int_vector(str);
 }
 
 template<typename T> void print_vector(const std::vector<T>& vec) {
@@ -35,7 +35,7 @@ template<typename T> void print_vector(const std::vector<T>& vec) {
 	std::cout << std::endl;
 }
 
-template<typename T> void print_vector2(const std::vector<std::vector<T>>& vec2) {
+template<typename T> void print_2d_vector(const std::vector<std::vector<T>>& vec2) {
 	for (auto vec1 : vec2) {
 		for (auto num : vec1) {
 			std::cout << num << " ";
@@ -111,7 +111,7 @@ std::vector<std::vector<char>> input_2d_char_vector()
 	std::cin >> str;
 	return string_to_2d_char_vector(str);
 }
-std::vector<std::vector<int>> string_to_int_vector2(const std::string& input) {
+std::vector<std::vector<int>> string_to_2d_int_vector(const std::string& input) {
 	std::vector<std::vector<int>> result;
 	if (input == "[]") return result;
 

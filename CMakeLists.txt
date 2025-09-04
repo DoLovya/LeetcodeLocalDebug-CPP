@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # 添加可执行文件
 add_executable(LeetCodeTest 
-	"leetcode_lisst.h"
+	"leetcode_list.h"
 	"leetcode_vector.h"
 	"leetcode_headers.h"
 	"leetcode_tree.h"

@@ -4,22 +4,11 @@
 
 ## 数据结构工具使用说明
 
-### 1. 链表工具 (leetcode_lisst.h)
-
-#### 结构定义
-```cpp
-struct ListNode {
-    int val;
-    ListNode* next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode* next) : val(x), next(next) {}
-};
-```
+### 1. 链表工具 (leetcode_list.h)
 
 #### 使用方法
 ```cpp
-#include "leetcode_lisst.h"
+#include "leetcode_list.h"
 
 // 从控制台输入创建链表
 // 输入格式：先输入节点数量，然后输入各节点值
@@ -31,18 +20,6 @@ output_list(head);
 ```
 
 ### 2. 二叉树工具 (leetcode_tree.h)
-
-#### 结构定义
-```cpp
-struct TreeNode {
-    int val;
-    TreeNode* left;
-    TreeNode* right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode* left, TreeNode* right) : val(x), left(left), right(right) {}
-};
-```
 
 #### 使用方法
 ```cpp
@@ -72,7 +49,7 @@ print_vector(nums);
 
 // 打印二维向量
 vector<vector<int>> matrix = {{1, 2}, {3, 4}, {5, 6}};
-print_vector2(matrix);
+print_2d_vector(matrix);
 
 // 从字符串创建整数向量
 // 输入格式：[1,2,3,4,5]
@@ -80,7 +57,7 @@ string str = "[1,2,3,4,5]";
 vector<int> vec = string_to_int_vector(str);
 
 // 从控制台输入创建整数向量
-vector<int> vec = intput_int_vector();
+vector<int> vec = input_int_vector();
 
 // 从字符串创建字符串向量
 // 输入格式：["MyQueue","push","push","peek","pop","empty"]
