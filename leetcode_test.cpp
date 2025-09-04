@@ -5,41 +5,29 @@
 using namespace std;
 
 // Copy to this
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
 class Solution {
+	int dp[2500];
 public:
-	vector<int> inorderTraversal(TreeNode* root) {
-		vector<int> result;
-		dfs(root, result);
-		return result;
-	}
-
-private:
-	void dfs(TreeNode* root, vector<int>& vec)
-	{
-		if (root == nullptr) return;
-
-		dfs(root->left, vec);
-		vec.push_back(root->val);
-		dfs(root->right, vec);
+	int lengthOfLIS(vector<int>& nums) {
+		for (int i = 0; i < nums.size(); i++) {
+			dp[i] = 1;
+			for (int j = 0; j < i; j++) {
+				if (nums[j] < nums[i]) {
+					dp[i] = std::max(dp[i], dp[j] + 1);
+				}
+			}
+		}
+		int max = *std::max_element(dp, dp + nums.size());
+		return max;
 	}
 };
 
 int main()
 {
 	Solution s;
-	auto treeNode = input_tree();
-	auto result = s.inorderTraversal(treeNode);
-	print_vector(result);
+	auto nums = input_int_vector();
+	auto result = s.lengthOfLIS(nums);
+	std::cout << result << std::endl;
 	return 0;
 }
+

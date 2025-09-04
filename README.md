@@ -89,18 +89,70 @@ vector<string> vec = string_to_string_vector(str);
 
 // 从控制台输入创建字符串向量
 vector<string> vec = input_string_vector();
+
+string str = "[[],[1],[2],[],[],[]]"; 
+vector<vector<int>> vec2d = string_to_2d_int_vector(str);
+
+vector<vector<int>> vec2d = input_2d_int_vector();
+
+string str = "[[\"1\",\"1\",\"1\",\"1\",\"0\"],[\"1\",\"1\",\"0\",\"1\",\"0\"]]";
+vector<vector<char>> grid = string_to_2d_char_vector(str);
+print_2d_char_vector(grid);
+
+vector<vector<char>> grid = input_2d_char_vector();
 ```
 
-### 4. 常用头文件 (leetcode_headers.h)
-包含了 LeetCode 题目中常用的头文件：
-- `<math.h>`
-- `<stack>`
-- `<vector>`
-- `<string>`
-- `<unordered_map>`
-
-### 5. Solution 模板 (leetcode_test.cpp)
+### 4. Solution 模板 (leetcode_test.cpp)
 提供了标准的 Solution 类模板，你可以直接在这里编写你的解决方案。
+
+### 5. 自定义数据结构测试
+对于需要测试自定义数据结构（如队列、栈等）的LeetCode题目，可以使用以下模式：
+
+```cpp
+#include "leetcode_headers.h"
+using namespace std;
+
+class MyQueue {
+public:
+    MyQueue() {}
+    void push(int x) { /* implementation */ }
+    int pop() { /* implementation */ return 0; }
+    int peek() { /* implementation */ return 0; }
+    bool empty() { /* implementation */ return true; }
+};
+
+int main() {
+    auto operations = input_string_vector();
+    auto values = input_2d_int_vector();
+    
+    MyQueue* my_queue = nullptr;
+    for (int i = 0; i < operations.size(); i++) {
+        auto operation = operations[i];
+        if (operation == "MyQueue") {
+            my_queue = new MyQueue();
+            std::cout << "null" << " ";
+        }
+        if (operation == "push") {
+            my_queue->push(values[i][0]);
+            std::cout << "null" << " ";
+        }
+        if (operation == "peek") {
+            std::cout << my_queue->peek() << " ";
+        }
+        if (operation == "pop") {
+            std::cout << my_queue->pop() << " ";
+        }
+        if (operation == "empty") {
+            std::cout << my_queue->empty() << " ";
+        }
+    }
+    return 0;
+}
+```
+
+输入示例：
+- 操作序列：`["MyQueue","push","push","peek","pop","empty"]`
+- 参数值：`[[],[1],[2],[],[],[]]`
 
 ## 使用方法
 
