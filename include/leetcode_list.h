@@ -14,7 +14,7 @@ struct ListNode {
 };
 
 
-std::vector<int> parse_array(const std::string& input) {
+std::vector<int> parseArray(const std::string& input) {
 	std::vector<int> result;
 	if (input == "[]") return result;
 
@@ -28,7 +28,7 @@ std::vector<int> parse_array(const std::string& input) {
 	return result;
 }
 
-ListNode* build_list(const std::vector<int>& values) {
+ListNode* buildList(const std::vector<int>& values) {
 	if (values.empty()) return nullptr;
 
 	ListNode* head = new ListNode(values[0]);
@@ -41,14 +41,14 @@ ListNode* build_list(const std::vector<int>& values) {
 	return head;
 }
 
-ListNode* input_list() {
+ListNode* inputList() {
 	std::string input;
 	std::cin >> input;
-	std::vector<int> values = parse_array(input);
-	return build_list(values);
+	std::vector<int> values = parseArray(input);
+	return buildList(values);
 }
 
-void print_list(ListNode* head)
+void printList(ListNode* head)
 {
 	while (head != nullptr) {
 		std::cout << head->val << " ";

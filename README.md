@@ -7,6 +7,7 @@
 ### 1. 链表工具 (leetcode_list.h)
 
 #### 使用方法
+
 ```cpp
 #include "leetcode_list.h"
 
@@ -22,6 +23,7 @@ print_list(head);
 ### 2. 二叉树工具 (leetcode_tree.h)
 
 #### 使用方法
+
 ```cpp
 #include "leetcode_tree.h"
 
@@ -40,6 +42,7 @@ print_tree(root);
 ### 3. 向量工具 (leetcode_vector.h)
 
 #### 使用方法
+
 ```cpp
 #include "leetcode_vector.h"
 
@@ -67,7 +70,7 @@ vector<string> vec = string_to_string_vector(str);
 // 从控制台输入创建字符串向量
 vector<string> vec = input_string_vector();
 
-string str = "[[],[1],[2],[],[],[]]"; 
+string str = "[[],[1],[2],[],[],[]]";
 vector<vector<int>> vec2d = string_to_2d_int_vector(str);
 
 vector<vector<int>> vec2d = input_2d_int_vector();
@@ -80,10 +83,12 @@ vector<vector<char>> grid = input_2d_char_vector();
 ```
 
 ### 4. Solution 模板 (leetcode_test.cpp)
+
 提供了标准的 Solution 类模板，你可以直接在这里编写你的解决方案。
 
 ### 5. 自定义数据结构测试
-对于需要测试自定义数据结构（如队列、栈等）的LeetCode题目，可以使用以下模式：
+
+对于需要测试自定义数据结构（如队列、栈等）的 LeetCode 题目，可以使用以下模式：
 
 ```cpp
 #include "leetcode_headers.h"
@@ -101,7 +106,7 @@ public:
 int main() {
     auto operations = input_string_vector();
     auto values = input_2d_int_vector();
-    
+
     MyQueue* my_queue = nullptr;
     for (int i = 0; i < operations.size(); i++) {
         auto operation = operations[i];
@@ -128,6 +133,7 @@ int main() {
 ```
 
 输入示例：
+
 - 操作序列：`["MyQueue","push","push","peek","pop","empty"]`
 - 参数值：`[[],[1],[2],[],[],[]]`
 
@@ -150,23 +156,27 @@ int main() {
 ## 使用方法
 
 ### 环境要求
+
 - CMake 3.10 或更高版本
 - C++17 编译器
 
 ### 构建项目
 
 1. 在项目根目录创建构建目录：
+
 ```bash
 mkdir build
 cd build
 ```
 
 2. 生成构建文件：
+
 ```bash
 cmake ..
 ```
 
 3. 编译项目：
+
 ```bash
 cmake --build .
 ```
@@ -198,7 +208,7 @@ public:
 int main() {
     std::string str;
     std::cin >> str;
-    
+
     Solution s;
     auto result = s.longestPalindrome(str);
     std::cout << result << std::endl;
