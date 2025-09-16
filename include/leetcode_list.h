@@ -17,11 +17,11 @@ struct ListNode {
 std::vector<int> parse_array(const std::string& input) {
 	std::vector<int> result;
 	if (input == "[]") return result;
-	
+
 	std::string content = input.substr(1, input.length() - 2);
 	std::stringstream ss(content);
 	std::string item;
-	
+
 	while (std::getline(ss, item, ',')) {
 		result.push_back(std::stoi(item));
 	}
@@ -30,10 +30,10 @@ std::vector<int> parse_array(const std::string& input) {
 
 ListNode* build_list(const std::vector<int>& values) {
 	if (values.empty()) return nullptr;
-	
+
 	ListNode* head = new ListNode(values[0]);
 	ListNode* current = head;
-	
+
 	for (int i = 1; i < values.size(); i++) {
 		current->next = new ListNode(values[i]);
 		current = current->next;
@@ -48,7 +48,7 @@ ListNode* input_list() {
 	return build_list(values);
 }
 
-void output_list(ListNode* head)
+void print_list(ListNode* head)
 {
 	while (head != nullptr) {
 		std::cout << head->val << " ";

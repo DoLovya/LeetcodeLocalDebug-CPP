@@ -16,7 +16,7 @@
 ListNode* head = input_list();
 
 // 输出链表
-output_list(head);
+print_list(head);
 ```
 
 ### 2. 二叉树工具 (leetcode_tree.h)
@@ -131,6 +131,22 @@ int main() {
 - 操作序列：`["MyQueue","push","push","peek","pop","empty"]`
 - 参数值：`[[],[1],[2],[],[],[]]`
 
+## 项目结构
+
+```
+├── .gitignore
+├── CMakeLists.txt
+├── LICENSE
+├── README.md
+├── include\
+│   ├── leetcode_headers.h
+│   ├── leetcode_list.h
+│   ├── leetcode_tree.h
+│   └── leetcode_vector.h
+└── src\
+    └── leetcode_test.cpp
+```
+
 ## 使用方法
 
 ### 环境要求
@@ -157,9 +173,9 @@ cmake --build .
 
 ### 使用步骤
 
-1. **编写解决方案**：在 `leetcode_test.h` 文件中的 `Solution` 类里编写你的解决方案
+1. **编写解决方案**：在 `src/leetcode_test.cpp` 文件中的 `Solution` 类里编写你的解决方案
 
-2. **修改主函数**：根据题目要求，在 `main.cpp` 中修改输入输出逻辑
+2. **修改主函数**：根据题目要求，在 `src/leetcode_test.cpp` 中修改输入输出逻辑
 
 3. **编译运行**：使用上述构建步骤编译并运行程序
 
@@ -168,7 +184,7 @@ cmake --build .
 当前项目包含了一个最长回文子串的示例实现：
 
 ```cpp
-// 在 leetcode_test.cpp 中
+// 在 src/leetcode_test.cpp 中
 #include "leetcode_headers.h"
 using namespace std;
 
@@ -194,7 +210,7 @@ int main() {
 
 你可以根据不同的题目需求：
 
-1. **修改输入输出**：在 `main.cpp` 中根据题目要求修改输入输出格式
+1. **修改输入输出**：在 `src/leetcode_test.cpp` 中根据题目要求修改输入输出格式
 2. **使用工具函数**：利用提供的链表和向量工具函数简化数据处理
 3. **添加新的工具函数**：根据需要在相应的头文件中添加新的工具函数
 
