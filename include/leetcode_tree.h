@@ -18,7 +18,7 @@ struct TreeNode {
 	TreeNode(int x, TreeNode* left, TreeNode* right) : val(x), left(left), right(right) {}
 };
 
-vector<string> split(const string& s, char delimiter) {
+vector<string> splitString(const string& s, char delimiter) {
 	vector<string> tokens;
 	string token;
 	istringstream tokenStream(s);
@@ -28,11 +28,11 @@ vector<string> split(const string& s, char delimiter) {
 	return tokens;
 }
 
-TreeNode* build_tree(const string& data) {
+TreeNode* buildTree(const string& data) {
 	if (data == "[]") return nullptr;
 
 	string content = data.substr(1, data.length() - 2);
-	vector<string> nodes = split(content, ',');
+	vector<string> nodes = splitString(content, ',');
 
 	if (nodes.empty() || nodes[0] == "null") return nullptr;
 
@@ -61,20 +61,19 @@ TreeNode* build_tree(const string& data) {
 	return root;
 }
 
-void print_tree(TreeNode* root) {
+void printTree(TreeNode* root) {
 	if (!root) {
 		cout << "null";
 		return;
 	}
 	cout << root->val << " ";
-	print_tree(root->left);
-	print_tree(root->right);
+	printTree(root->left);
+	printTree(root->right);
 }
 
-TreeNode* input_tree()
+TreeNode* inputTree()
 {
 	std::string input;
 	std::cin >> input;
-	return  build_tree(input);
+	return buildTree(input);
 }
-

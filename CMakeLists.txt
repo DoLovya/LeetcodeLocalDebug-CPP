@@ -8,12 +8,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # 添加可执行文件
 add_executable(LeetCodeTest 
-	"leetcode_list.h"
-	"leetcode_vector.h"
-	"leetcode_headers.h"
-	"leetcode_tree.h"
-	"leetcode_test.cpp"
+	"include/leetcode_list.h"
+	"include/leetcode_vector.h"
+	"include/leetcode_headers.h"
+	"include/leetcode_tree.h"
+	"src/leetcode_test.cpp"
 )
 
 # 可选：添加头文件搜索路径
-target_include_directories(LeetCodeTest PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(LeetCodeTest PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)

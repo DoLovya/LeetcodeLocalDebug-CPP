@@ -7,6 +7,7 @@
 ### 1. 链表工具 (leetcode_list.h)
 
 #### 使用方法
+
 ```cpp
 #include "leetcode_list.h"
 
@@ -16,12 +17,13 @@
 ListNode* head = input_list();
 
 // 输出链表
-output_list(head);
+print_list(head);
 ```
 
 ### 2. 二叉树工具 (leetcode_tree.h)
 
 #### 使用方法
+
 ```cpp
 #include "leetcode_tree.h"
 
@@ -40,6 +42,7 @@ print_tree(root);
 ### 3. 向量工具 (leetcode_vector.h)
 
 #### 使用方法
+
 ```cpp
 #include "leetcode_vector.h"
 
@@ -67,7 +70,7 @@ vector<string> vec = string_to_string_vector(str);
 // 从控制台输入创建字符串向量
 vector<string> vec = input_string_vector();
 
-string str = "[[],[1],[2],[],[],[]]"; 
+string str = "[[],[1],[2],[],[],[]]";
 vector<vector<int>> vec2d = string_to_2d_int_vector(str);
 
 vector<vector<int>> vec2d = input_2d_int_vector();
@@ -80,10 +83,12 @@ vector<vector<char>> grid = input_2d_char_vector();
 ```
 
 ### 4. Solution 模板 (leetcode_test.cpp)
+
 提供了标准的 Solution 类模板，你可以直接在这里编写你的解决方案。
 
 ### 5. 自定义数据结构测试
-对于需要测试自定义数据结构（如队列、栈等）的LeetCode题目，可以使用以下模式：
+
+对于需要测试自定义数据结构（如队列、栈等）的 LeetCode 题目，可以使用以下模式：
 
 ```cpp
 #include "leetcode_headers.h"
@@ -101,7 +106,7 @@ public:
 int main() {
     auto operations = input_string_vector();
     auto values = input_2d_int_vector();
-    
+
     MyQueue* my_queue = nullptr;
     for (int i = 0; i < operations.size(); i++) {
         auto operation = operations[i];
@@ -128,38 +133,59 @@ int main() {
 ```
 
 输入示例：
+
 - 操作序列：`["MyQueue","push","push","peek","pop","empty"]`
 - 参数值：`[[],[1],[2],[],[],[]]`
+
+## 项目结构
+
+```
+├── .gitignore
+├── CMakeLists.txt
+├── LICENSE
+├── README.md
+├── include\
+│   ├── leetcode_headers.h
+│   ├── leetcode_list.h
+│   ├── leetcode_tree.h
+│   └── leetcode_vector.h
+└── src\
+    └── leetcode_test.cpp
+```
 
 ## 使用方法
 
 ### 环境要求
+
 - CMake 3.10 或更高版本
 - C++17 编译器
 
 ### 构建项目
 
 1. 在项目根目录创建构建目录：
+
 ```bash
 mkdir build
 cd build
 ```
 
 2. 生成构建文件：
+
 ```bash
 cmake ..
 ```
 
 3. 编译项目：
+
 ```bash
 cmake --build .
 ```
 
 ### 使用步骤
 
-1. **编写解决方案**：在 `leetcode_test.h` 文件中的 `Solution` 类里编写你的解决方案
+1. **编写解决方案**：在 `src/leetcode_test.cpp` 文件中的 `Solution` 类里编写你的解决方案
 
-2. **修改主函数**：根据题目要求，在 `main.cpp` 中修改输入输出逻辑
+2. **修改主函数**：根据题目要求，在 `src/leetcode_test.cpp` 中修改输入输出逻辑
 
 3. **编译运行**：使用上述构建步骤编译并运行程序
 
@@ -168,7 +194,7 @@ cmake --build .
 当前项目包含了一个最长回文子串的示例实现：
 
 ```cpp
-// 在 leetcode_test.cpp 中
+// 在 src/leetcode_test.cpp 中
 #include "leetcode_headers.h"
 using namespace std;
 
@@ -182,7 +208,7 @@ public:
 int main() {
     std::string str;
     std::cin >> str;
-    
+
     Solution s;
     auto result = s.longestPalindrome(str);
     std::cout << result << std::endl;
@@ -194,7 +220,7 @@ int main() {
 
 你可以根据不同的题目需求：
 
-1. **修改输入输出**：在 `main.cpp` 中根据题目要求修改输入输出格式
+1. **修改输入输出**：在 `src/leetcode_test.cpp` 中根据题目要求修改输入输出格式
 2. **使用工具函数**：利用提供的链表和向量工具函数简化数据处理
 3. **添加新的工具函数**：根据需要在相应的头文件中添加新的工具函数
 
