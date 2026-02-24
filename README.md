@@ -12,12 +12,11 @@
 #include "leetcode_list.h"
 
 // 从控制台输入创建链表
-// 输入格式：先输入节点数量，然后输入各节点值
-// 例如：5 1 2 3 4 5
-ListNode* head = input_list();
+// 输入格式：[1,2,3,4,5]
+ListNode* head = inputList();
 
 // 输出链表
-print_list(head);
+printList(head);
 ```
 
 ### 2. 二叉树工具 (leetcode_tree.h)
@@ -85,6 +84,13 @@ vector<vector<char>> grid = input_2d_char_vector();
 ### 4. Solution 模板 (leetcode_test.cpp)
 
 提供了标准的 Solution 类模板，你可以直接在这里编写你的解决方案。
+
+为了方便直接复制代码到 LeetCode 提交，我们在 `src/leetcode_test.cpp` 中使用了 `LEETCODE_LOCAL` 宏来区分本地调试代码和提交代码。
+
+本地调试时，CMake 会自动定义 `LEETCODE_LOCAL` 宏，从而包含本地头文件和 `main` 函数。
+提交到 LeetCode 时，由于没有定义该宏，只有 `Solution` 类会被编译，从而避免头文件缺失或 `main` 函数冲突的错误。
+
+你可以直接复制 `src/leetcode_test.cpp` 的全部内容到 LeetCode 编辑器中。
 
 ### 5. 自定义数据结构测试
 

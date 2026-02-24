@@ -2,11 +2,14 @@
 cmake_minimum_required(VERSION 3.10)
 project(LeetCodeTest)
 
-# ÉèÖÃC++±ê×¼
+# è®¾ç½®C++æ ‡å‡†
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Ìí¼Ó¿ÉÖ´ĞĞÎÄ¼ş
+# æ·»åŠ å®å®šä¹‰
+add_definitions(-DLEETCODE_LOCAL)
+
+# Add executable
 add_executable(LeetCodeTest 
 	"include/leetcode_list.h"
 	"include/leetcode_vector.h"
@@ -15,5 +18,5 @@ add_executable(LeetCodeTest
 	"src/leetcode_test.cpp"
 )
 
-# ¿ÉÑ¡£ºÌí¼ÓÍ·ÎÄ¼şËÑË÷Â·¾¶
+# åŒ…å«å¤´æ–‡ä»¶ç›®å½•
 target_include_directories(LeetCodeTest PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)

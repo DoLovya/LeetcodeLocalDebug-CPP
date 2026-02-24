@@ -1,38 +1,45 @@
 #pragma once
 
+#include <vector>
+#include <algorithm>
+#include <iostream>
+
+#ifdef LEETCODE_LOCAL
 #include "leetcode_headers.h"
+#endif
 
-using namespace std;
-
-// Copy to this
-class Solution
-{
-	int dp[2500];
-
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
 public:
-	int lengthOfLIS(vector<int> &nums)
-	{
-		for (int i = 0; i < nums.size(); i++)
-		{
-			dp[i] = 1;
-			for (int j = 0; j < i; j++)
-			{
-				if (nums[j] < nums[i])
-				{
-					dp[i] = std::max(dp[i], dp[j] + 1);
-				}
-			}
-		}
-		int max = *std::max_element(dp, dp + nums.size());
-		return max;
-	}
+    ListNode* reverseList(ListNode* head) {
+        ListNode* prev = nullptr;
+        ListNode* curr = head;
+        while (curr != nullptr) {
+            ListNode* nextTemp = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = nextTemp;
+        }
+        return prev;
+    }
 };
 
+#ifdef LEETCODE_LOCAL
 int main()
 {
-	Solution s;
-	auto nums = inputIntVector();
-	auto result = s.lengthOfLIS(nums);
-	std::cout << result << std::endl;
-	return 0;
+    Solution s;
+    auto list = inputList();
+    auto result = s.reverseList(list);
+    printList(result);
+    return 0;
 }
+#endif
